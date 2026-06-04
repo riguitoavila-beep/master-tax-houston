@@ -1,94 +1,373 @@
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Brand */
+    --brand-blue: #0033CC;
+    --brand-dark: #001899;
+    --brand-navy: #040c1e;
+    --brand-navy-2: #0a1628;
+
+    /* Department colors */
+    --dept-taxes: #0033CC;
+    --dept-migration: #7c3aed;
+    --dept-insurance: #059669;
+    --dept-credit: #d97706;
+
+    /* Accents */
+    --cyan: #22d3ee;
+    --gold: #c9a96e;
+
+    /* Radii */
+    --radius: 0.875rem;
+    --radius-lg: 1.25rem;
+    --radius-xl: 1.75rem;
+
+    /* ── CURVAS BEZIER PERSONALIZADAS ─────────────────── */
+    --ease-fluid:     cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-snap:      cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* ── DURACIONES ───────────────────────────────────── */
+    --dur-fast:   220ms;
+    --dur-mid:    480ms;
+    --dur-slow:   800ms;
+    --dur-reveal: 1100ms;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to Manrope ExtraBold */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: #0f172a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Remove Safari tap highlight */
+  * { -webkit-tap-highlight-color: transparent; }
+  *, *::before, *::after { box-sizing: border-box; }
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY UTILITIES
+───────────────────────────────────────────── */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+
+  /* Playfair Display — for display/accent words only */
+  .font-display {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  /* Hero headline — Fraunces weight 700 (usa los contrastes finos/gruesos) */
+  .text-hero {
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  /* Hero accent — Fraunces italic, explotamos el eje SOFT */
+  .text-hero-accent {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  /* Section titles */
+  .text-section-title {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+  }
+
+  /* Section accent — Fraunces italic light, máximo contraste visual */
+  .text-section-accent {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  /* Uppercase labels */
+  .text-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Gradient text */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #2563eb 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #c9a96e 0%, #e8c98a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-@layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
+/* ─────────────────────────────────────────────
+   COMPONENT CLASSES
+───────────────────────────────────────────── */
+@layer components {
+
+  /* Section container */
+  .section-container {
+    @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10;
   }
-  :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+
+  /* Premium section badge */
+  .section-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white px-4 py-1.5;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #64748b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-  .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+
+  /* On dark sections */
+  .section-badge-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
   }
-  * {
-    @apply border-border outline-ring/50;
+
+  /* Glass card */
+  .glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.04) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.11);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  /* Light card */
+  .light-card {
+    @apply rounded-3xl border border-slate-100 bg-white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.055);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
-  html {
-    @apply font-sans;
+  .light-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.03), 0 20px 56px rgba(0,0,0,0.09);
+    transform: translateY(-2px);
   }
+
+  /* Premium input */
+  .input-field {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-800 placeholder:text-slate-400 transition-all duration-200;
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    font-weight: 500;
+    @apply focus:border-[#0033CC] focus:outline-none focus:ring-2 focus:ring-[#0033CC]/10;
+  }
+
+  /* Premium CTA button — dark on hero */
+  .btn-hero-primary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-2xl px-7 py-4 text-sm font-bold text-white transition-all duration-300;
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, #0033CC 0%, #1a4fff 100%);
+    box-shadow: 0 4px 24px rgba(0,51,204,0.45), 0 1px 0 rgba(255,255,255,0.1) inset;
+    min-height: 52px;
+  }
+  .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(0,51,204,0.6), 0 1px 0 rgba(255,255,255,0.12) inset;
+  }
+  .btn-hero-primary:active { transform: translateY(0); }
+
+  /* Ghost button — dark bg */
+  .btn-hero-ghost {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-2xl px-7 py-4 text-sm font-bold transition-all duration-300;
+    font-family: var(--font-manrope), system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    min-height: 52px;
+  }
+  .btn-hero-ghost:hover {
+    color: rgba(255,255,255,0.95);
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Dept card */
+  .dept-card {
+    @apply relative overflow-hidden rounded-3xl border border-slate-100 bg-white;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+  }
+  .dept-card:hover {
+    box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - var(--gap))); }
+}
+@keyframes marquee-vertical {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% - var(--gap))); }
+}
+.animate-marquee { animation: marquee var(--duration) linear infinite; }
+.animate-marquee-vertical { animation: marquee-vertical var(--duration) linear infinite; }
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes whatsappPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.whatsapp-pulse { animation: whatsappPulse 2.5s ease-out infinite; }
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.1); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,51,204,0.18); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0033CC; }
+
+/* iOS Safari WebKit fixes */
+@supports (-webkit-touch-callout: none) {
+  .glass-card, .btn-hero-ghost {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   MORPHING BUTTONS
+───────────────────────────────────────────── */
+@keyframes morphBtn {
+  0%,  100% { border-radius: 1rem   0.9rem  1.05rem 0.95rem / 0.95rem 1.05rem 0.9rem  1rem;   }
+  25%        { border-radius: 0.9rem  1.05rem 0.95rem 1rem   / 1rem   0.9rem  1.05rem 0.95rem; }
+  50%        { border-radius: 1.05rem 0.95rem 1rem   0.9rem  / 0.9rem  1rem   0.95rem 1.05rem; }
+  75%        { border-radius: 0.95rem 1rem   0.9rem  1.05rem / 1.05rem 0.95rem 1rem   0.9rem;  }
+}
+
+.btn-hero-primary {
+  animation: morphBtn 9s var(--ease-in-out) infinite;
+}
+.btn-hero-primary:hover {
+  animation: none;
+  border-radius: 1.125rem;
+}
+
+/* ─────────────────────────────────────────────
+   FLUID BLUR REVEAL (usado vía JS también)
+───────────────────────────────────────────── */
+@keyframes blurReveal {
+  from {
+    opacity: 0;
+    filter: blur(18px);
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   NAV ELASTIC BUBBLE
+───────────────────────────────────────────── */
+.nav-bubble {
+  transition:
+    left   var(--dur-mid)  var(--ease-spring),
+    width  var(--dur-mid)  var(--ease-spring),
+    opacity var(--dur-fast) var(--ease-fluid);
+}
+
+/* ─────────────────────────────────────────────
+   LOGO BREATHE
+───────────────────────────────────────────── */
+@keyframes logoBreathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.018); }
+}
+.logo-breathe {
+  animation: logoBreathe 4s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .whatsapp-pulse { animation: none; box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
 }
