@@ -20,7 +20,7 @@ const NAV_LINKS = [
 ];
 
 /* ── Spring 3D Logo ─────────────────────────────────────── */
-function Logo({ scrolled }: { scrolled: boolean }) {
+function Logo() {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -149,7 +149,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-[62px] items-center justify-between lg:h-[66px]">
 
-            <Logo scrolled={scrolled} />
+            <Logo />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-0.5">

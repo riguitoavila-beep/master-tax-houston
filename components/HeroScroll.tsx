@@ -1,6 +1,6 @@
 "use client";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Calculator, Globe, Shield, TrendingUp, ArrowRight, CheckCircle } from "lucide-react";
+import { Calculator, Globe, Shield, TrendingUp, ArrowRight } from "lucide-react";
 
 const DEPT_PREVIEW = [
   {

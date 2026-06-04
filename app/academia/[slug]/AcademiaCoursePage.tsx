@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Clock, BookOpen, CheckCircle, Star, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, BookOpen, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
