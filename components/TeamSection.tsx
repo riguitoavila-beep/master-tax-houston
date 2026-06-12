@@ -184,7 +184,7 @@ export default function TeamSection() {
             <span
               className="text-section-accent"
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-manrope)",
                 background: "linear-gradient(135deg, #2563eb 0%, #22d3ee 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",

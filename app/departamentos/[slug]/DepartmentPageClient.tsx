@@ -211,7 +211,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                   />
                   <p
                     className="text-xl font-bold text-white leading-snug"
-                    style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}
+                    style={{ fontFamily: "var(--font-manrope)", fontStyle: "normal" }}
                   >
                     &ldquo;{dept.tagline}&rdquo;
                   </p>
@@ -245,7 +245,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                 <span
                   className="text-section-accent"
                   style={{
-                    fontFamily: "var(--font-playfair)",
+                    fontFamily: "var(--font-manrope)",
                     color: cfg.accent,
                   }}
                 >
@@ -353,7 +353,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                 Todos nuestros{" "}
                 <span
                   className="text-section-accent"
-                  style={{ fontFamily: "var(--font-playfair)", color: cfg.accent }}
+                  style={{ fontFamily: "var(--font-manrope)", color: cfg.accent }}
                 >
                   servicios.
                 </span>

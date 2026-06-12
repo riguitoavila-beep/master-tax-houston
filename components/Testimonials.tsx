@@ -64,7 +64,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[0] }) {
       <span
         className="block text-3xl leading-none mb-1"
         style={{
-          fontFamily: "var(--font-playfair)",
+          fontFamily: "var(--font-manrope)",
           color: t.color,
           opacity: 0.55,
           lineHeight: 1,
@@ -148,7 +148,7 @@ export default function Testimonials() {
             <span
               className="text-section-accent"
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-manrope)",
                 background: "linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",

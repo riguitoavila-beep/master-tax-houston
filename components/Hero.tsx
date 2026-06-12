@@ -52,11 +52,7 @@ function CyclingWord() {
   const word = CYCLING_WORDS[index];
 
   return (
-    /*
-      isolation: isolate + translateZ(0) → previene flickering en iOS Safari
-      durante animaciones de filter: blur en gradient text.
-      paddingBottom da espacio a descenders de Fraunces italic (g, y).
-    */
+    /* isolation + translateZ(0) → previene flickering en iOS Safari con gradient text animado */
     <span
       style={{
         display: "inline-block",
@@ -191,16 +187,15 @@ export default function Hero() {
                   <BlurChunk delay={0.39}>de</BlurChunk>
                 </span>
 
-                {/* Line 2: Confianza — Fraunces italic */}
+                {/* Line 2: Confianza — azul claro → verde esmeralda */}
                 <BlurChunk
                   delay={0.54}
                   className="text-hero-accent"
                   style={{
-                    background: "linear-gradient(135deg, #93c5fd 0%, #22d3ee 55%, #a5b4fc 100%)",
+                    background: "linear-gradient(135deg, #60a5fa 0%, #34d399 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
-                    /* GPU layer para evitar artifacts iOS */
                     transform: "translateZ(0)",
                     paddingRight: 0,
                     display: "block",

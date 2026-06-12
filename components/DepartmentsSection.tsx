@@ -194,7 +194,7 @@ export default function DepartmentsSection() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
                     href={`/departamentos/${dept.slug}`}
-                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                     style={{
                       background: cfg.iconBg,
                       fontFamily: "var(--font-manrope)",
@@ -206,7 +206,7 @@ export default function DepartmentsSection() {
                   </Link>
                   <button
                     onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}
-                    className="cursor-pointer flex-1 inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
+                    className="cursor-pointer flex-1 inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3.5 text-sm font-bold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all duration-200"
                     style={{ fontFamily: "var(--font-manrope)" }}
                   >
                     {dept.cta}

@@ -83,7 +83,7 @@ export default function FAQ() {
             <span
               className="text-section-accent"
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-manrope)",
                 background: "linear-gradient(135deg, #0033CC 0%, #22d3ee 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",

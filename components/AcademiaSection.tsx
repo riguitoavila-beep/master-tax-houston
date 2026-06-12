@@ -139,9 +139,14 @@ function CourseCard({ course, index }: { course: (typeof COURSES)[0]; index: num
             whileTap={{ scale: 0.97 }}
             onClick={handleBuy}
             disabled={loading}
-            className="cursor-pointer inline-flex items-center gap-1.5 rounded-2xl bg-[#0033CC] px-4 py-2.5 text-xs font-extrabold text-white shadow-[0_4px_16px_rgba(0,51,204,0.35)] hover:bg-[#001899] disabled:opacity-60 transition-all duration-200"
+            className="cursor-pointer inline-flex items-center gap-1.5 rounded-full bg-[#0033CC] px-4 py-2.5 text-xs font-extrabold text-white shadow-[0_4px_16px_rgba(0,51,204,0.35)] hover:bg-[#001899] disabled:opacity-60 transition-all duration-200"
           >
-            {loading ? "..." : (
+            {loading ? (
+              <svg className="h-3.5 w-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+            ) : (
               <>
                 Comprar
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -181,7 +186,7 @@ export default function AcademiaSection() {
             <span
               className="text-section-accent"
               style={{
-                fontFamily: "var(--font-playfair)",
+                fontFamily: "var(--font-manrope)",
                 background: "linear-gradient(135deg, #2563eb 0%, #22d3ee 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -241,7 +246,7 @@ export default function AcademiaSection() {
         >
           <Link
             href="/academia"
-            className="inline-flex items-center gap-2 rounded-2xl border-2 border-[#0033CC] px-8 py-3.5 text-sm font-extrabold text-[#0033CC] hover:bg-[#0033CC] hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,51,204,0.25)]"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-[#0033CC] px-8 py-3.5 text-sm font-extrabold text-[#0033CC] hover:bg-[#0033CC] hover:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(0,51,204,0.25)]"
           >
             Ver Todos los Cursos
             <ArrowRight className="h-4 w-4" />

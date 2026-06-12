@@ -99,7 +99,7 @@ export default function HeroScroll() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
-                  fontFamily: "var(--font-playfair)",
+                  fontFamily: "var(--font-manrope)",
                 }}
               >
                 en un solo lugar.
