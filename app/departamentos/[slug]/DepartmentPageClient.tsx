@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle, ArrowRight, Calculator, Globe, Shield, TrendingUp, Phone, MessageSquare } from "lucide-react";
+import { ArrowLeft, CheckCircle, ArrowRight, Calculator, Globe, Shield, TrendingUp, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import type { Department } from "@/lib/departments-data";
 
 const ICONS = { calculator: Calculator, globe: Globe, shield: Shield, "trending-up": TrendingUp };
@@ -68,7 +69,7 @@ function SpecialistPhotoFrame({
         className="relative"
       >
         {/* Photo container */}
-        <div className="relative w-52 h-64 rounded-[1.875rem] overflow-hidden bg-slate-100 shadow-xl">
+        <div className="relative w-44 h-56 sm:w-52 sm:h-64 rounded-[1.875rem] overflow-hidden bg-slate-100 shadow-xl">
           <Image
             src={photo}
             alt={name}
@@ -116,7 +117,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
 
         {/* ── HERO ──────────────────────────────────────────── */}
         <section
-          className="relative pt-32 pb-24 overflow-hidden"
+          className="relative pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden"
           style={{ background: "linear-gradient(160deg, #030a1a 0%, #0a1628 100%)" }}
         >
           {/* Glow blobs */}
@@ -134,7 +135,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
           <div className="section-container relative z-10">
             <Link
               href="/#departamentos"
-              className="inline-flex items-center gap-2 text-sm font-bold text-white/40 hover:text-white/70 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm font-bold text-white/40 hover:text-white/70 transition-colors mb-8 min-h-[44px]"
               style={{ fontFamily: "var(--font-manrope)" }}
             >
               <ArrowLeft className="h-4 w-4" />
@@ -175,7 +176,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                 <div className="flex flex-wrap gap-3">
                   <button
                     onClick={() => document.querySelector("#contacto-dept")?.scrollIntoView({ behavior: "smooth" })}
-                    className="cursor-pointer inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-extrabold text-white shadow-lg hover:opacity-90 transition-all hover:-translate-y-0.5"
+                    className="cursor-pointer inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-extrabold text-white shadow-lg hover:opacity-90 transition-all hover:-translate-y-0.5 min-h-[44px]"
                     style={{ background: cfg.gradientCss, fontFamily: "var(--font-manrope)", boxShadow: `0 6px 24px ${cfg.glow}` }}
                   >
                     {dept.cta}
@@ -185,10 +186,10 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                     href="https://wa.me/13464593090"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-2xl border border-white/12 bg-white/6 px-7 py-3.5 text-sm font-extrabold text-white/70 hover:bg-white/10 hover:text-white transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-7 py-3.5 text-sm font-extrabold text-white/70 hover:bg-white/10 hover:text-white transition-all hover:-translate-y-0.5 backdrop-blur-sm min-h-[44px]"
                     style={{ fontFamily: "var(--font-manrope)" }}
                   >
-                    <MessageSquare className="h-4 w-4" />
+                    <WhatsAppIcon className="h-4 w-4 fill-current" />
                     WhatsApp
                   </a>
                 </div>
@@ -319,7 +320,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                       onClick={() =>
                         document.querySelector("#contacto-dept")?.scrollIntoView({ behavior: "smooth" })
                       }
-                      className="cursor-pointer inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
+                      className="cursor-pointer inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 min-h-[44px]"
                       style={{
                         background: cfg.gradientCss,
                         fontFamily: "var(--font-manrope)",
@@ -424,7 +425,7 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="tel:3465897005"
-                className="inline-flex items-center gap-2 rounded-2xl px-7 py-3.5 text-sm font-extrabold text-white shadow-lg hover:opacity-90 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-extrabold text-white shadow-lg hover:opacity-90 transition-all hover:-translate-y-0.5 min-h-[44px]"
                 style={{ background: cfg.gradientCss, fontFamily: "var(--font-manrope)", boxShadow: `0 6px 24px ${cfg.glow}` }}
               >
                 <Phone className="h-4 w-4" />
@@ -434,15 +435,15 @@ export default function DepartmentPageClient({ dept }: { dept: Department }) {
                 href="https://wa.me/13464593090"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl bg-[#25D366] px-7 py-3.5 text-sm font-extrabold text-white hover:opacity-90 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-extrabold text-white hover:opacity-90 transition-all hover:-translate-y-0.5 min-h-[44px]"
                 style={{ fontFamily: "var(--font-manrope)", boxShadow: "0 6px 24px rgba(37,211,102,0.3)" }}
               >
-                <MessageSquare className="h-4 w-4" />
+                <WhatsAppIcon className="h-4 w-4 fill-white" />
                 WhatsApp
               </a>
               <Link
                 href="/#contacto"
-                className="inline-flex items-center gap-2 rounded-2xl border-2 border-slate-200 px-7 py-3.5 text-sm font-extrabold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-200 px-7 py-3.5 text-sm font-extrabold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all hover:-translate-y-0.5 min-h-[44px]"
                 style={{ fontFamily: "var(--font-manrope)" }}
               >
                 Formulario de Contacto
