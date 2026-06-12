@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 const DEPT_LINKS = [
@@ -120,6 +121,8 @@ export default function Navbar() {
   const [mobileOpen,    setMobileOpen]    = useState(false);
   const [deptOpen,      setDeptOpen]      = useState(false);
   const [mobileDeptOpen, setMobileDeptOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 56);
@@ -130,7 +133,11 @@ export default function Navbar() {
   const scrollTo = (href: string) => {
     setMobileOpen(false);
     setDeptOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    if (pathname === "/") {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/${href}`);
+    }
   };
 
   const scrolledCls = scrolled
