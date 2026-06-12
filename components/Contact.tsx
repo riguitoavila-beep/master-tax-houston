@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Phone, Mail, MessageSquare, CheckCircle, Calculator, Globe, Shield, TrendingUp, Send } from "lucide-react";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const DEPARTMENTS = [
   { value: "impuestos-finanzas", label: "Impuestos y Finanzas", icon: Calculator, color: "#0033CC" },
@@ -100,19 +101,11 @@ export default function Contact() {
     <section id="contacto" className="py-28 bg-slate-50/60">
       <div className="section-container">
 
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <span className="section-badge mb-5">Contáctanos</span>
-          </motion.div>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-section-title text-slate-900 mb-4">
-            Estamos Aquí{" "}
-            <span className="text-gradient-blue">Para Ti.</span>
-          </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.18 }} className="max-w-xl mx-auto text-base text-slate-500 leading-relaxed">
-            Selecciona tu departamento, cuéntanos lo que necesitas y te contactamos en menos de 24 horas.
-          </motion.p>
-        </div>
+        <SectionHeader
+          badge="Contáctanos"
+          title={<>Estamos Aquí <span className="text-gradient-blue">Para Ti.</span></>}
+          subtitle="Selecciona tu departamento, cuéntanos lo que necesitas y te contactamos en menos de 24 horas."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 

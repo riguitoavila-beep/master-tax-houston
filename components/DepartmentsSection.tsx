@@ -5,6 +5,7 @@ import { Calculator, Globe, Shield, TrendingUp, ArrowRight, CheckCircle } from "
 import Link from "next/link";
 import Image from "next/image";
 import { DEPARTMENTS } from "@/lib/departments-data";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const ICONS = {
   calculator: Calculator,
@@ -39,51 +40,21 @@ export default function DepartmentsSection() {
 
       <div className="section-container relative z-10">
 
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-5"
-          >
-            <span className="section-badge" style={{ fontFamily: "var(--font-manrope)" }}>
-              Nuestros Departamentos
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-section-title text-slate-900 mb-4"
-            style={{ fontFamily: "var(--font-manrope)" }}
-          >
-            4 Departamentos.{" "}
-            <span
-              className="text-section-accent"
-              style={{
-                fontFamily: "var(--font-playfair)",
-                color: cfg.accent,
-                transition: "color 0.5s ease",
-              }}
-            >
-              Un Solo Lugar.
-            </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.18 }}
-            className="max-w-2xl mx-auto text-base text-slate-500 leading-relaxed"
-            style={{ fontFamily: "var(--font-manrope)", fontWeight: 400 }}
-          >
-            Especialistas dedicados en cada área para darte el mejor servicio posible.
-            Todos bajo el mismo techo, todos en español.
-          </motion.p>
-        </div>
+        <SectionHeader
+          badge="Nuestros Departamentos"
+          title={
+            <>
+              4 Departamentos.{" "}
+              <span
+                className="text-section-accent"
+                style={{ color: cfg.accent, transition: "color 0.5s ease" }}
+              >
+                Un Solo Lugar.
+              </span>
+            </>
+          }
+          subtitle="Especialistas dedicados en cada área para darte el mejor servicio posible. Todos bajo el mismo techo, todos en español."
+        />
 
         {/* Tab selector */}
         <div className="flex flex-wrap justify-center gap-2.5 mb-14">
@@ -155,12 +126,10 @@ export default function DepartmentsSection() {
                     </div>
                   </div>
 
-                  {/* Tagline — Playfair italic */}
                   <p
                     className="text-2xl font-bold mb-4 leading-snug"
                     style={{
-                      fontFamily: "var(--font-playfair)",
-                      fontStyle: "italic",
+                      fontFamily: "var(--font-manrope)",
                       color: cfg.accent,
                     }}
                   >
@@ -297,61 +266,6 @@ export default function DepartmentsSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Bottom summary cards */}
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {DEPARTMENTS.map((d, i) => {
-            const DIcon = ICONS[d.icon as keyof typeof ICONS] || Calculator;
-            const dcfg = DEPT_CONFIG[i];
-            const isActive = active === i;
-            return (
-              <motion.button
-                key={d.id}
-                onClick={() => setActive(i)}
-                whileHover={{ y: -3 }}
-                whileTap={{ scale: 0.97 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="cursor-pointer relative text-left rounded-3xl p-5 transition-all duration-300 overflow-hidden"
-                style={
-                  isActive
-                    ? {
-                        background: dcfg.iconBg,
-                        boxShadow: `0 8px 32px ${dcfg.accent}30`,
-                      }
-                    : {
-                        background: "white",
-                        border: "1px solid rgba(0,0,0,0.07)",
-                        boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-                      }
-                }
-              >
-                {isActive && (
-                  <div
-                    className="absolute top-0 left-4 right-4 h-px rounded-full"
-                    style={{ background: "rgba(255,255,255,0.3)" }}
-                  />
-                )}
-                <DIcon
-                  className={`h-5 w-5 mb-3 ${isActive ? "text-white/80" : "text-slate-400"}`}
-                />
-                <p
-                  className={`text-sm font-extrabold leading-tight ${isActive ? "text-white" : "text-slate-700"}`}
-                  style={{ fontFamily: "var(--font-manrope)" }}
-                >
-                  {d.name}
-                </p>
-                <p
-                  className={`text-[11px] mt-1 font-semibold ${isActive ? "text-white/60" : "text-slate-400"}`}
-                  style={{ fontFamily: "var(--font-manrope)" }}
-                >
-                  {d.services.length} servicios
-                </p>
-              </motion.button>
-            );
-          })}
-        </div>
 
       </div>
     </section>
