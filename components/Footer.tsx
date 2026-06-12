@@ -1,7 +1,8 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Mail, MessageSquare, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, MessageSquare, Clock, Send } from "lucide-react";
 
 const DEPT_LINKS = [
   { label: "Impuestos y Finanzas", href: "/departamentos/impuestos-finanzas", dot: "#2563eb" },
@@ -17,6 +18,80 @@ const SERVICE_LINKS = [
   { label: "Reparación de Crédito", href: "/departamentos/credito-financiamiento" },
   { label: "Academia Online", href: "/academia" },
 ];
+
+function MiniCaptureForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email) return;
+    setLoading(true);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, department: "general", message: "Solicitud desde footer" }),
+      });
+    } finally {
+      setSent(true);
+      setLoading(false);
+    }
+  };
+
+  if (sent) {
+    return (
+      <div className="flex items-center gap-3 rounded-2xl border border-white/12 bg-white/6 px-5 py-3.5 backdrop-blur-sm">
+        <div className="h-7 w-7 rounded-full bg-[#22d3ee]/15 flex items-center justify-center flex-shrink-0">
+          <Send className="h-3.5 w-3.5 text-[#22d3ee]" />
+        </div>
+        <p className="text-sm font-semibold text-white/80" style={{ fontFamily: "var(--font-manrope)" }}>
+          ¡Recibido! Te contactamos pronto.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2.5 w-full max-w-lg">
+      <input
+        type="text"
+        required
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Tu nombre"
+        className="flex-1 min-w-0 rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/28 focus:bg-white/12 transition-all backdrop-blur-sm"
+        style={{ fontFamily: "var(--font-manrope)", fontSize: "16px" }}
+      />
+      <input
+        type="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="tu@email.com"
+        className="flex-1 min-w-0 rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/28 focus:bg-white/12 transition-all backdrop-blur-sm"
+        style={{ fontFamily: "var(--font-manrope)", fontSize: "16px" }}
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-full bg-[#0033CC] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#001899] hover:-translate-y-0.5 disabled:opacity-60 flex-shrink-0"
+        style={{ fontFamily: "var(--font-manrope)", boxShadow: "0 4px 20px rgba(0,51,204,0.4)" }}
+      >
+        {loading ? (
+          <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+          </svg>
+        ) : (
+          <><Send className="h-3.5 w-3.5" />Enviar</>
+        )}
+      </button>
+    </form>
+  );
+}
 
 export default function Footer() {
   return (
@@ -64,45 +139,45 @@ export default function Footer() {
             }}
           />
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div>
-              <p
-                className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#22d3ee]/70 mb-3"
-                style={{ fontFamily: "var(--font-manrope)" }}
-              >
-                ¿Listo para empezar?
-              </p>
-              <h3
-                className="text-2xl md:text-3xl font-extrabold text-white leading-tight max-w-lg"
-                style={{ fontFamily: "var(--font-manrope)", letterSpacing: "-0.03em" }}
-              >
-                Tu consulta es{" "}
-                <span
-                  style={{
-                    fontFamily: "var(--font-playfair)",
-                    fontStyle: "italic",
-                    background: "linear-gradient(135deg, #93c5fd, #22d3ee)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-5">
+              <div>
+                <p
+                  className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#22d3ee]/70 mb-3"
+                  style={{ fontFamily: "var(--font-manrope)" }}
                 >
-                  gratis.
-                </span>
-              </h3>
-              <p
-                className="mt-2 text-sm text-white/40 max-w-md"
-                style={{ fontFamily: "var(--font-manrope)", fontWeight: 400 }}
-              >
-                Habla con uno de nuestros especialistas hoy mismo. Sin compromiso, sin costo.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+                  ¿Listo para empezar?
+                </p>
+                <h3
+                  className="text-2xl md:text-3xl font-extrabold text-white leading-tight max-w-lg"
+                  style={{ fontFamily: "var(--font-manrope)", letterSpacing: "-0.03em" }}
+                >
+                  Tu consulta es{" "}
+                  <span
+                    style={{
+                      fontFamily: "var(--font-manrope)",
+                      fontStyle: "normal",
+                      background: "linear-gradient(135deg, #93c5fd, #22d3ee)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    gratis.
+                  </span>
+                </h3>
+                <p
+                  className="mt-2 text-sm text-white/40 max-w-md"
+                  style={{ fontFamily: "var(--font-manrope)", fontWeight: 400 }}
+                >
+                  Habla con uno de nuestros especialistas hoy mismo. Sin compromiso, sin costo.
+                </p>
+              </div>
               <a
                 href="https://wa.me/13464593090"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 flex-shrink-0"
                 style={{
                   fontFamily: "var(--font-manrope)",
                   background: "linear-gradient(135deg, #25D366, #1da851)",
@@ -110,20 +185,19 @@ export default function Footer() {
                 }}
               >
                 <MessageSquare className="h-4 w-4" />
-                WhatsApp
+                WhatsApp directo
               </a>
-              <a
-                href="#contacto"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/12 bg-white/6 px-5 py-3 text-sm font-bold text-white/80 transition-all duration-200 hover:bg-white/10 hover:text-white hover:-translate-y-0.5 backdrop-blur-sm"
-                style={{ fontFamily: "var(--font-manrope)" }}
+            </div>
+
+            {/* Mini capture form */}
+            <div>
+              <p
+                className="text-[11px] font-semibold text-white/30 mb-3"
+                style={{ fontFamily: "var(--font-manrope)", letterSpacing: "0.06em" }}
               >
-                Formulario de Contacto
-                <ArrowRight className="h-4 w-4" />
-              </a>
+                O déjanos tu nombre y correo y te contactamos nosotros:
+              </p>
+              <MiniCaptureForm />
             </div>
           </div>
         </div>

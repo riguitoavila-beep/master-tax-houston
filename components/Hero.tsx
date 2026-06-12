@@ -338,15 +338,6 @@ export default function Hero() {
                       priority
                     />
                   </div>
-                  {(["top-3 left-3", "top-3 right-3", "bottom-3 left-3", "bottom-3 right-3"] as const).map((pos, i) => (
-                    <motion.div
-                      key={pos}
-                      animate={{ opacity: [0.2, 0.8, 0.2] }}
-                      transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.45 }}
-                      className={`absolute ${pos} h-[5px] w-[5px] rounded-full`}
-                      style={{ background: i % 2 === 0 ? "#22d3ee" : "#c9a96e" }}
-                    />
-                  ))}
                 </motion.div>
               </div>
             </motion.div>

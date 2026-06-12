@@ -1,31 +1,18 @@
 import type { Metadata } from "next";
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
-/*
-  STACK TIPOGRÁFICO PREMIUM
-  ─────────────────────────
-  Fraunces   → Display / Títulos (reemplaza Playfair Display)
-              Variable font con eje SOFT y WONK.
-              Comparable a PP Editorial New / Ogg en contraste y curvas orgánicas.
-
-  DM Sans    → UI / Cuerpo / Botones (reemplaza Manrope)
-              Sans-serif geométrico ultra-nítido.
-              Comparable a PP Neue Montreal / Roobert / Switzer.
-*/
-
-const fraunces = Fraunces({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "900"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair", // mantenemos el nombre de variable para compatibilidad
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-manrope", // mantenemos el nombre de variable para compatibilidad
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -55,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="es" className={`${plusJakarta.variable} ${inter.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

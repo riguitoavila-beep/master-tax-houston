@@ -202,7 +202,7 @@ export default function Contact() {
                       <h3 className="text-xl font-extrabold text-slate-900 mb-2">¡Mensaje Enviado!</h3>
                       <p className="text-sm text-slate-500 max-w-sm">Un especialista te contactará en menos de 24 horas. También puedes escribirnos al WhatsApp para respuesta inmediata.</p>
                     </div>
-                    <button onClick={() => setStatus("idle")} className="cursor-pointer rounded-2xl bg-[#0033CC] px-6 py-2.5 text-sm font-bold text-white hover:bg-[#001899] transition-colors">
+                    <button onClick={() => setStatus("idle")} className="cursor-pointer rounded-full bg-[#0033CC] px-6 py-2.5 text-sm font-bold text-white hover:bg-[#001899] transition-colors">
                       Enviar Otro Mensaje
                     </button>
                   </motion.div>
@@ -274,7 +274,7 @@ export default function Contact() {
                       </p>
                     )}
 
-                    <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }} type="submit" disabled={status === "loading"} className="cursor-pointer mt-1 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#0033CC] py-4 text-sm font-extrabold text-white shadow-[0_4px_24px_rgba(0,51,204,0.35)] hover:bg-[#001899] disabled:opacity-60 transition-all duration-300">
+                    <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }} type="submit" disabled={status === "loading"} className="cursor-pointer mt-1 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0033CC] py-4 text-sm font-extrabold text-white shadow-[0_4px_24px_rgba(0,51,204,0.35)] hover:bg-[#001899] disabled:opacity-60 transition-all duration-300">
                       {status === "loading" ? (
                         <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
                       ) : (
