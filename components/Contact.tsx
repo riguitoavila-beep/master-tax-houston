@@ -233,7 +233,7 @@ export default function Contact() {
                               key={dept.value}
                               type="button"
                               onClick={() => setForm((p) => ({ ...p, department: dept.value, service: "" }))}
-                              className={`cursor-pointer flex items-center gap-2.5 rounded-2xl border p-3 text-left text-xs font-bold transition-all duration-200 ${isActive ? "border-transparent text-white shadow-md" : "border-slate-100 text-slate-600 hover:border-slate-200 hover:bg-slate-50"}`}
+                              className={`cursor-pointer flex items-center gap-2.5 rounded-2xl border p-3 text-left text-xs font-bold transition-all duration-200 min-h-[44px] ${isActive ? "border-transparent text-white shadow-md" : "border-slate-100 text-slate-600 hover:border-slate-200 hover:bg-slate-50"}`}
                               style={isActive ? { background: dept.color } : {}}
                             >
                               <Icon className={`h-4 w-4 flex-shrink-0 ${isActive ? "text-white" : ""}`} style={!isActive ? { color: dept.color } : {}} />

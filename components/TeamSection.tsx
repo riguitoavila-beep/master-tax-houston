@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { DEPARTMENTS } from "@/lib/departments-data";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const DEPT_COLORS: Record<string, { accent: string; light: string; label: string; gradient: string }> = {
   impuestos: {
@@ -159,55 +160,28 @@ export default function TeamSection() {
     <section id="equipo" className="py-28 bg-slate-50/60">
       <div className="section-container">
 
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-5"
-          >
-            <span className="section-badge" style={{ fontFamily: "var(--font-manrope)" }}>
-              Nuestro Equipo
-            </span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-section-title text-slate-900 mb-4"
-            style={{ fontFamily: "var(--font-manrope)" }}
-          >
-            Expertos{" "}
-            <span
-              className="text-section-accent"
-              style={{
-                fontFamily: "var(--font-manrope)",
-                background: "linear-gradient(135deg, #2563eb 0%, #22d3ee 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Reales.
-            </span>
-            <br />
-            Resultados Reales.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.18 }}
-            className="max-w-xl mx-auto text-base text-slate-500 leading-relaxed"
-            style={{ fontFamily: "var(--font-manrope)", fontWeight: 400 }}
-          >
-            Cada departamento tiene su especialista dedicado. Conoce a las personas
-            que van a trabajar para ti.
-          </motion.p>
-        </div>
+        <SectionHeader
+          badge="Nuestro Equipo"
+          title={
+            <>
+              Expertos{" "}
+              <span
+                className="text-section-accent"
+                style={{
+                  background: "linear-gradient(135deg, #2563eb 0%, #22d3ee 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Reales.
+              </span>
+              <br />
+              Resultados Reales.
+            </>
+          }
+          subtitle="Cada departamento tiene su especialista dedicado. Conoce a las personas que van a trabajar para ti."
+        />
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

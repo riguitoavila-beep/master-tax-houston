@@ -105,7 +105,7 @@ function NavItem({
       </AnimatePresence>
       <button
         onClick={onClick}
-        className={`relative z-10 cursor-pointer px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 ${linkCls}`}
+        className={`relative z-10 cursor-pointer px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 min-h-[44px] ${linkCls}`}
         style={{ fontFamily: "var(--font-manrope)" }}
       >
         {children}
@@ -179,7 +179,7 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                   <button
-                    className={`relative z-10 flex items-center gap-1.5 cursor-pointer px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 ${linkCls}`}
+                    className={`relative z-10 flex items-center gap-1.5 cursor-pointer px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 min-h-[44px] ${linkCls}`}
                     onClick={() => scrollTo("#departamentos")}
                     style={{ fontFamily: "var(--font-manrope)" }}
                   >

@@ -220,6 +220,7 @@ export default function Footer() {
               alt="Master Tax Houston"
               width={44}
               height={44}
+              loading="lazy"
               className="h-11 w-11 object-contain mb-5 opacity-90"
             />
             <p
@@ -242,7 +243,7 @@ export default function Footer() {
                 href="https://wa.me/13464593090"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-200 hover:-translate-y-0.5"
                 style={{
                   background: "rgba(255,255,255,0.06)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -261,7 +262,7 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:martinez@mastertaxnotary.com"
-                className="flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-200 hover:-translate-y-0.5"
                 style={{
                   background: "rgba(255,255,255,0.06)",
                   border: "1px solid rgba(255,255,255,0.08)",
