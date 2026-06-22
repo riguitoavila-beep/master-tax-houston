@@ -139,7 +139,7 @@ export default function Navbar() {
   };
 
   const scrolledCls = scrolled
-    ? "bg-[#030a1a]/80 backdrop-blur-2xl shadow-[0_4px_32px_rgba(0,0,0,0.35)] border-white/10"
+    ? "backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.12)] border-white/15"
     : "bg-white/5 backdrop-blur-md border-white/8";
 
   const linkCls = scrolled ? "text-white/75 hover:text-white" : "text-white/60 hover:text-white";
@@ -151,6 +151,11 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-3 left-4 right-4 z-50 transition-all duration-500 rounded-2xl border ${scrolledCls}`}
+        style={scrolled ? {
+          background: "rgba(8, 16, 36, 0.55)",
+          WebkitBackdropFilter: "blur(28px) saturate(180%)",
+          backdropFilter: "blur(28px) saturate(180%)",
+        } : undefined}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex h-[62px] items-center justify-between lg:h-[66px]">
