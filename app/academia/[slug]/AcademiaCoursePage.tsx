@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Clock, BookOpen, CheckCircle, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, BookOpen, CheckCircle, Star, Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -97,6 +97,24 @@ export default function AcademiaCoursePage({ course }: { course: Course }) {
         <section className="py-20">
           <div className="section-container grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
+
+              {/* Video Coming Soon */}
+              <div className="mb-12 rounded-3xl overflow-hidden border border-slate-100 bg-gradient-to-br from-slate-900 to-[#0a1628] aspect-video flex flex-col items-center justify-center gap-4 relative">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #0033CC 0%, transparent 70%)" }} />
+                <div className="relative flex flex-col items-center gap-4 text-center px-6">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm">
+                    <Play className="h-8 w-8 text-white/60" />
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full bg-[#0033CC]/40 border border-[#60a5fa]/30 px-4 py-1.5">
+                    <span className="h-2 w-2 rounded-full bg-[#60a5fa] animate-pulse" />
+                    <span className="text-xs font-extrabold text-[#93c5fd] uppercase tracking-widest">Contenido Próximamente</span>
+                  </div>
+                  <p className="text-sm text-white/40 max-w-xs leading-relaxed">
+                    Los videos de este curso estarán disponibles muy pronto. Una vez publicados tendrás acceso inmediato.
+                  </p>
+                </div>
+              </div>
+
               {/* Description */}
               <div className="mb-12">
                 <h2 className="text-xl font-extrabold text-slate-900 mb-4">Sobre Este Curso</h2>

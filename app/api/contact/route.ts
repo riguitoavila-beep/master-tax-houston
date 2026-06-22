@@ -31,9 +31,9 @@ export async function POST(req: NextRequest) {
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       const resend = new Resend(resendKey);
-      await resend.emails.send({
+      const { data, error } = await resend.emails.send({
         from: "Master Tax Website <onboarding@resend.dev>",
-        to:   "martinez@mastertaxnotary.com",
+        to:   "martineztax.notary@gmail.com",
         subject: `Nueva solicitud de ${name} — ${deptLabel}`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f8fafc;border-radius:12px;">
@@ -57,6 +57,11 @@ export async function POST(req: NextRequest) {
           </div>
         `,
       });
+      if (error) {
+        console.error("Resend error:", error);
+      } else {
+        console.log("Email sent OK, id:", data?.id);
+      }
     }
 
     // Also forward to GHL if configured

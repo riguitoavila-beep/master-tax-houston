@@ -62,7 +62,7 @@ function MiniCaptureForm() {
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Tu nombre"
-        className="flex-1 min-w-0 rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/28 focus:bg-white/12 transition-all backdrop-blur-sm"
+        className="flex-1 min-w-0 rounded-full border border-white/20 bg-white px-5 py-3 text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
         style={{ fontFamily: "var(--font-manrope)", fontSize: "16px" }}
       />
       <input
@@ -71,7 +71,7 @@ function MiniCaptureForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="tu@email.com"
-        className="flex-1 min-w-0 rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm text-white placeholder:text-white/35 outline-none focus:border-white/28 focus:bg-white/12 transition-all backdrop-blur-sm"
+        className="flex-1 min-w-0 rounded-full border border-white/20 bg-white px-5 py-3 text-sm text-gray-800 placeholder:text-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
         style={{ fontFamily: "var(--font-manrope)", fontSize: "16px" }}
       />
       <button

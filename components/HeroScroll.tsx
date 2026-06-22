@@ -106,7 +106,7 @@ export default function HeroScroll() {
               </span>
             </h2>
             <p
-              className="text-base text-white/38 max-w-xl mx-auto leading-relaxed"
+              className="text-base text-white/65 max-w-xl mx-auto leading-relaxed"
               style={{ fontFamily: "var(--font-manrope)", fontWeight: 400 }}
             >
               Especialistas reales, servicios reales. Atención personalizada en español
@@ -134,7 +134,7 @@ export default function HeroScroll() {
               className="flex-1 mx-3 flex items-center justify-center rounded-md px-3 py-1"
               style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
             >
-              <span className="text-[10px] text-white/28 font-semibold tracking-wide" style={{ fontFamily: "var(--font-manrope)" }}>
+              <span className="text-[10px] text-white/60 font-semibold tracking-wide" style={{ fontFamily: "var(--font-manrope)" }}>
                 mastertaxnotary.com
               </span>
             </div>
@@ -151,7 +151,7 @@ export default function HeroScroll() {
             </span>
             <div className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
-              <span className="text-[9px] text-white/35 font-semibold" style={{ fontFamily: "var(--font-manrope)" }}>En línea</span>
+              <span className="text-[9px] text-white/65 font-semibold" style={{ fontFamily: "var(--font-manrope)" }}>En línea</span>
             </div>
           </div>
 
@@ -193,7 +193,7 @@ export default function HeroScroll() {
                       <p className="text-[9.5px] font-extrabold leading-tight truncate" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-manrope)" }}>
                         {dept.name}
                       </p>
-                      <p className="text-[7.5px] leading-tight truncate" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "var(--font-manrope)", fontWeight: 600 }}>
+                      <p className="text-[7.5px] leading-tight truncate" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-manrope)", fontWeight: 600 }}>
                         {dept.specialist}
                       </p>
                     </div>
@@ -251,7 +251,7 @@ export default function HeroScroll() {
                 <p className="text-[11px] font-extrabold text-white/80" style={{ fontFamily: "var(--font-manrope)", letterSpacing: "-0.03em" }}>
                   {stat.value}
                 </p>
-                <p className="text-[7px] text-white/28 font-bold uppercase tracking-wider" style={{ fontFamily: "var(--font-manrope)" }}>
+                <p className="text-[7px] text-white/60 font-bold uppercase tracking-wider" style={{ fontFamily: "var(--font-manrope)" }}>
                   {stat.label}
                 </p>
               </div>

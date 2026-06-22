@@ -59,14 +59,20 @@ function CourseCard({ course, index }: { course: (typeof COURSES)[0]; index: num
             {course.badge}
           </div>
         )}
-        <div className="text-center">
-          <div
-            className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10"
-          >
+        {/* Coming Soon overlay */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10">
             <FmtIcon className="h-7 w-7 text-white/80" />
           </div>
-          <p className="text-xs font-bold text-white/40 uppercase tracking-widest">{course.format}</p>
+          <div className="flex flex-col items-center gap-1.5">
+            <div className="flex items-center gap-1.5 rounded-full bg-[#0033CC]/30 border border-[#60a5fa]/30 px-3 py-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#60a5fa] animate-pulse" />
+              <span className="text-[10px] font-extrabold text-[#93c5fd] uppercase tracking-widest">Próximamente</span>
+            </div>
+            <p className="text-[10px] text-white/30">{course.format}</p>
+          </div>
         </div>
+
         {/* Department label */}
         <div className="absolute bottom-4 right-4 rounded-xl bg-white/8 backdrop-blur-sm border border-white/10 px-3 py-1">
           <p className="text-[10px] font-bold text-white/50">{course.department}</p>
