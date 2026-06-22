@@ -77,7 +77,7 @@ function NavItem({
   scrolled: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
-  const linkCls = scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/60 hover:text-white";
+  const linkCls = scrolled ? "text-white/75 hover:text-white" : "text-white/60 hover:text-white";
 
   return (
     <div
@@ -96,9 +96,7 @@ function NavItem({
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             className="absolute inset-0 rounded-xl pointer-events-none"
             style={{
-              background: scrolled
-                ? "rgba(0,0,0,0.05)"
-                : "rgba(255,255,255,0.09)",
+              background: "rgba(255,255,255,0.09)",
               backdropFilter: "blur(6px)",
             }}
           />
@@ -141,10 +139,10 @@ export default function Navbar() {
   };
 
   const scrolledCls = scrolled
-    ? "bg-white/95 backdrop-blur-2xl shadow-[0_2px_24px_rgba(0,0,0,0.07)] border-slate-100/90"
+    ? "bg-[#030a1a]/80 backdrop-blur-2xl shadow-[0_4px_32px_rgba(0,0,0,0.35)] border-white/10"
     : "bg-white/5 backdrop-blur-md border-white/8";
 
-  const linkCls = scrolled ? "text-slate-600 hover:text-slate-900" : "text-white/60 hover:text-white";
+  const linkCls = scrolled ? "text-white/75 hover:text-white" : "text-white/60 hover:text-white";
 
   return (
     <>
@@ -179,7 +177,7 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 320, damping: 28 }}
                         className="absolute inset-0 rounded-xl pointer-events-none"
                         style={{
-                          background: scrolled ? "rgba(0,0,0,0.05)" : "rgba(255,255,255,0.09)",
+                          background: "rgba(255,255,255,0.09)",
                           backdropFilter: "blur(6px)",
                         }}
                       />
@@ -275,9 +273,7 @@ export default function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className={`lg:hidden cursor-pointer rounded-xl p-2 transition-colors ${
-                scrolled ? "text-slate-700 hover:bg-slate-100" : "text-white/70 hover:bg-white/10"
-              }`}
+              className={`lg:hidden cursor-pointer rounded-xl p-2 transition-colors text-white/70 hover:bg-white/10`}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             >
